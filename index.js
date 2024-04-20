@@ -1,10 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = 2000;
+const port = process.env.PORT||2000;
 const ConnectToMongo = require('./db');
 var cors = require('cors');
-const fileUpload = require('express-fileupload')
+
 
 app.use(cors({
     origin: '*',
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use('/api/auth', require('./routes/auth.js'));
 app.use('/api/menu', require('./routes/menu'));
 app.use('/api', require('./routes/otp'));
-// app.use('/api/s', require('./routes/search'));
+
 
 
 // Error handling middleware

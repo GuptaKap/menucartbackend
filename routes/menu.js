@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Menu = require('../models/Menu.js');
 const CategoryModel = require('../models/Category');
-const multer = require('multer');
-const cloudinary = require("../helper/cloudinaryconfig");
-
 
 const { body, validationResult } = require('express-validator');
 
