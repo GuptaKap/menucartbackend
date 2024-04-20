@@ -7,14 +7,11 @@ var cors = require('cors');
 
 
 app.use(cors({
-    origin: '*',
+    origin: 'https://menumarket.netlify.app/',
     credentials: true,
 }));
 ConnectToMongo();
 
-app.use(fileUpload({
-    useTempFiles:true
-}))
 
 // Middleware to handle JSON payloads
 app.use(express.json({ limit: '50mb' })); // Adjust '50mb' according to your requirements
