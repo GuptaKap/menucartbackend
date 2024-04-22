@@ -17,12 +17,16 @@ var cors = require('cors');
 // };
 // app.use(cors(corsOptions));
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://menu-market.netlify.app'],
+    origin: ['http://172.16.21.140:3000','http://localhost:3000', 'https://menumarket.netlify.app' ],
     credentials: true,
 }));
+// app.use(cors({
+//     origin: ['http://localhost:3000', 'https://menumarket.netlify.app'],
+//     credentials: true,
+// }));
 
 // Handle preflight OPTIONS requests
-app.options('*', cors());
+app.use(cors());
 
 ConnectToMongo();
 
