@@ -5,11 +5,25 @@ const port = process.env.PORT||2000;
 const ConnectToMongo = require('./db');
 var cors = require('cors');
 
-
+// const allowedOrigins = ['http://localhost:3000', 'https://menumarket.netlify.app'];
+// const corsOptions = {
+//     origin: function (origin, callback) {
+//         if (!origin || allowedOrigins.includes(origin)) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     }
+// };
+// app.use(cors(corsOptions));
 app.use(cors({
-    origin: 'https://menumarket.netlify.app/',
+    origin: ['http://localhost:3000', 'https://menu-market.netlify.app'],
     credentials: true,
 }));
+
+// Handle preflight OPTIONS requests
+app.options('*', cors());
+
 ConnectToMongo();
 
 
